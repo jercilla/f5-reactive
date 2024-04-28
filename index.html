@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="reactive.js"></script>
+</head>
+<body>
+  <input type="number" id="campo1">
+  <input type="number" id="campo2">
+  <button id="sumar" onclick="sumar()">sumar</button>
+  <output id="total"></output>
+
+  <hr>
+
+  <pre id="debug"></pre>
+  <script>
+    data = {
+      campo1: new Observable(0),
+      campo2: new Observable(0),
+      total: new Observable(0)
+    };
+    bindData(data);
+
+
+    function sumar() {
+      data.total.value = data.campo1.value + data.campo2.value;
+    }
+  </script>
+</body>
+</html>
