@@ -12,16 +12,14 @@
   <button id="sumar" onclick="sumar()">sumar</button>
   <output id="total"></output>
 
-  <hr>
-
-  <pre id="debug"></pre>
+  <br><br><br><hr><pre id="debug"></pre><hr>
   <script>
     data = {
-      campo1: new Observable(0),
-      campo2: new Observable(0),
-      total: new Observable(0)
+      campo1: value(0),
+      campo2: value(0),
+      total: value(0)
     };
-    bindData(data);
+    app(data);
 
 
     function sumar() {

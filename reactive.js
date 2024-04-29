@@ -25,21 +25,23 @@ class Observable {
   }
 }
 
-const bindData = (data) => {
-  Object.keys(data).forEach(key => {
+const value = (variable) => new Observable(variable);
+
+const app = (data) => {
+  Object.keys(data).forEach((key) => {
     const input = document.getElementById(key);
     const observable = data[key];
-    
+
     input.value = observable.value;
-    observable.subscribe(() => input.value = observable.value);
-    input.oninput = () => observable.value = input.valueAsNumber;
-    const debug = document.getElementById('debug');
+    observable.subscribe(() => (input.value = observable.value));
+    input.oninput = () => (observable.value = input.valueAsNumber);
+    const debug = document.getElementById("debug");
     if (debug) {
       debugData(data);
       observable.subscribe(() => debugData(data));
     }
-  })
-}
+  });
+};
 
 const debugData = (data) => {
   let debug_data = "";
